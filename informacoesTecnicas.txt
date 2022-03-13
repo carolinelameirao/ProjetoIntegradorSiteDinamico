@@ -6,3 +6,4 @@ preto #000000
 branco #ffffff
 
 fonte da logo - lobster regular
+font do banner - Basic Gothic Pro

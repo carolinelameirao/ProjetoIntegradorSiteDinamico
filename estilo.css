@@ -1,0 +1,48 @@
+body{
+    background-color: #d9d9d9;
+    font-family: arial;
+}
+
+.form{
+    width: 300px;
+    margin: auto;
+    position: relative;
+    background: #919191;
+    margin: 100px auto 100px;
+    border-radius: 8px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.24);
+}
+
+.form input{
+    background: #f2f2f2;
+    width:100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    
+}
+
+.form button{
+    background: #ffbd59;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form .message{
+    margin: 15px 0 0;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.form .message a{
+    color: #5ce1e6;
+    text-decoration: underline;
+}

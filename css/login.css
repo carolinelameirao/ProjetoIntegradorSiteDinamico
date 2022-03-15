@@ -3,10 +3,6 @@ body{
     font-family: arial;
 }
 
-header.container-fluid {
-    background-color: #919191;
-}
-
 .form{
     width: 300px;
     margin: auto;

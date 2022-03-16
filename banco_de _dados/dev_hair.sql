@@ -26,7 +26,7 @@ CREATE TABLE funcionario (
 	id INT(11) PRIMARY KEY auto_increment,
 	nome VARCHAR(150) NOT NULL,
 	idFuncaoFuncinario INT(11) NOT NULL,
-	FOREIGN KEY (idFuncaoFunconario) REFERENCES tipoFuncionario(id)
+	FOREIGN KEY (idFuncaoFunconario) REFERENCES funcaoFuncionario(id)
 );
 
 CREATE TABLE servico (

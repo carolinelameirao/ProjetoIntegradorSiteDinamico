@@ -3,7 +3,7 @@
 require_once('./crud_cliente.php');
 
 
-if($_POST['txtnome'] == NULL || $_POST['txtcpf'] == NULL || $_POST['txtdataNasc'] == NULL || $_POST['txtendereco'] == NULL || $_POST['txtcelular'] == NULL || $_POST['textdataCadastro'])
+if($_POST['txtnome'] == NULL || $_POST['txtcpf'] == NULL || $_POST['txtemail'] == NULL || $_POST['txtsenha'] == NULL ||  $_POST['textdataCadastro'] == NULL || $_POST['texttelefone'] == NULL)
 {
     header('location: ./error.php?status=access-deny'); 
     die(); 
@@ -11,10 +11,10 @@ if($_POST['txtnome'] == NULL || $_POST['txtcpf'] == NULL || $_POST['txtdataNasc'
 $cliente = new stdClass();
 $cliente->nome=$_POST['txtnome'];
 $cliente->cpf=$_POST['txtcpf'];
-$cliente->dataNasc=$_POST['txtdataNasc'];
-$cliente->endereco=$_POST['txtendereco'];
-$cliente->celular=$_POST['txtcelular'];
+$cliente->email=$_POST['txtemail'];
+$cliente->senha=$_POST['txtsenha'];
 $cliente->dataCadastro=$_POST['txtdataCadastro'];
+$cliente->telefone=$_POST['txttelefone'];
 
 create($cliente);
 

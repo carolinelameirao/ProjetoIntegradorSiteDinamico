@@ -10,16 +10,16 @@ function create($cliente)
         $con = getConnection();
         #Insert something
 
-        $stmt = $con->prepare("INSERT INTO cliente(nome, cpf, dataNasc, endereco, celular, dataCadastro)
-         VALUES (:nome , :cpf , :dataNasc , :endereco , :celular , :dataCadastro)");
+        $stmt = $con->prepare("INSERT INTO cliente(nome, cpf, telefone, email, senha)
+         VALUES (:nome , :cpf , :telefone , :email , :senha)");
 
         $stmt->bindParam(":nome", $cliente->nome);
         $stmt->bindParam(":cpf", $cliente->cpf);
-        $stmt->bindParam(":dataNasc", $cliente->dataNasc);
-        $stmt->bindParam(":endereco", $cliente->endereco);
-        $stmt->bindParam(":celular", $cliente->celular);
-        $stmt->bindParam(":dataCadastro", $cliente->dataCadastro);
-
+        $stmt->bindParam(":email", $cliente->email);
+        $stmt->bindParam(":senha", $cliente->senha);
+        $stmt->bindParam(":telefone", $cliente->telefone);
+        
+        
 
         if ($stmt->execute()) {
             echo " Cliente Cadastrado com sucesso";
@@ -37,11 +37,9 @@ function create($cliente)
 $cliente = new stdClass();
 $cliente->nome = "Clara Cerqueira";
 $cliente->cpf = "356.254.147-54";
-$cliente->dataNasc = 1997-06-25;
-$cliente->endereco = "Rua Araguari, 256 - Rio de Janeiro, RJ";
-$cliente->celular = "(21) 9935 4851";
-$cliente->dataCadastro = 2020-02-11
-);
+$cliente->email =  "ccerqueira@gmail.com";
+$cliente->senha = "rosada987";
+$cliente->telefone = "(21) 3568 4127";
 
 create($cliente);
 
@@ -55,14 +53,14 @@ function get()
         try {
             $con = getConnection();
 
-            $rs = $con->query("SELECT nome, cpf, dataNasc, endereco, celular, dataCadastro FROM cliente");
+            $rs = $con->query("SELECT nome, cpf, email, senha, telefone, dataCadastro FROM cliente");
 
             while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
                 echo $row->nome . "<br>";
                 echo $row->cpf . "<br>";
-                echo $row->dataNasc . "<br>";
-                echo $row->endereco . "<br>";
-                echo $row->celular . "<br>";
+                echo $row->email . "<br>";
+                //echo $row->senha . "<br>"; Passamos o valor mas não listamos
+                echo $row->telefone . "<br>";
                 echo $row->dataCadastro . "<br>";
             }
         } catch (PDOException $error) {
@@ -84,7 +82,7 @@ function get()
         try {
             $con = getConnection();
 
-            $stmt = $con->prepare("SELECT nome, cpf, dataNasc, endereco, celular, dataCadastro FROM cliente WHERE cpf LIKE :cpf");
+            $stmt = $con->prepare("SELECT nome, cpf, email, senha, telefone, dataCadastro FROM cliente WHERE cpf LIKE :cpf");
             
             $stmt->bindValue(":cpf", "%{$cpf}%");
 
@@ -94,9 +92,9 @@ function get()
                     while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
                         echo $row->nome . "<br>";
                         echo $row->cpf . "<br>";
-                        echo $row->dataNasc . "<br>";
-                        echo $row->endereco . "<br>";
-                        echo $row->celular . "<br>";
+                        echo $row->email . "<br>";
+                        //echo $row->senha . "<br>"; Passamos o valor mas não listamos
+                        echo $row->telefone . "<br>";
                         echo $row->dataCadastro . "<br>";
                     }
                 }
@@ -120,16 +118,16 @@ function get()
         try {
             $con = getConnection();
 
-            $stmt = $con->prepare("UPDATE cliente SET nome= :nome, cpf = :cpf , dataNasc = :dataNasc , endereco = :endereco , dataCadastro = :dataCadastro
-              WHERE celular = :celular"); 
+            $stmt = $con->prepare("UPDATE cliente SET nome= :nome, email = :email , senha = :senha , telefone = :telefone,
+             dataCadastro = :dataCadastro WHERE cpf = :cpf"); 
             
             
              
             $stmt->bindParam(":nome", $cliente->nome);
             $stmt->bindParam(":cpf", $cliente->cpf);
-            $stmt->bindParam(":dataNasc", $cliente->dataNasc);
-            $stmt->bindParam(":endereco", $cliente->endereco);
-            $stmt->bindParam(":celular", $cliente->celular);
+            $stmt->bindParam(":email", $cliente->email);
+            $stmt->bindParam(":senha", $cliente->senha); 
+            $stmt->bindParam(":telefone", $cliente->telefone);
             $stmt->bindParam(":dataCadastro", $cliente->dataCadastro);
 
             if ($stmt->execute())
@@ -146,12 +144,10 @@ function get()
     #teste upgrade 
      $cliente = new stdClass();   
      $cliente->cpf = "356.254.147-54";
-     $cliente->dataNasc = 1997-06-25;
-     $cliente->endereco = "Rua Araguari, 256 - Rio de Janeiro, RJ";
-     $cliente->celular = "(21) 99935 4851";
-     $cliente->dataCadastro = 2020-02-11;
-
-     
+     $cliente->email = "ccerqueira@gmail.com.br";
+     $cliente->senha = "rosada987";
+     $cliente->telefone = "(21) 3568 4127";
+      
 
 
      get();

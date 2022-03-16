@@ -10,16 +10,11 @@ function create($cliente)
         $con = getConnection();
         #Insert something
 
-        $stmt = $con->prepare("INSERT INTO cliente(nome, cpf, telefone, email, senha)
-         VALUES (:nome , :cpf , :telefone , :email , :senha)");
+        $stmt = $con->prepare("INSERT INTO cliente(cpf, nome, telefone) VALUES (:cpf, :nome, :telefone)");
 
-        $stmt->bindParam(":nome", $cliente->nome);
         $stmt->bindParam(":cpf", $cliente->cpf);
-        $stmt->bindParam(":email", $cliente->email);
-        $stmt->bindParam(":senha", $cliente->senha);
+        $stmt->bindParam(":nome", $cliente->nome);
         $stmt->bindParam(":telefone", $cliente->telefone);
-        
-        
 
         if ($stmt->execute()) {
             echo " Cliente Cadastrado com sucesso";

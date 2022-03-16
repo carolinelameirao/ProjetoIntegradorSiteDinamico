@@ -30,7 +30,7 @@ function create($login)
 
 
 #create test - 
-$login= new stdClass();
+/*$login= new stdClass();
 
 $login->email =  "ccerqueira@gmail.com";
 $login->senha = "rosada987";
@@ -38,36 +38,35 @@ $login->senha = "rosada987";
 
 create($login);
 
-echo "<br><br>---<br><br>";
+echo "<br><br>---<br><br>";*/
 
 
 
 
 function get()
-    {
-        try {
-            $con = getConnection();
+{
+    try {
+        $con = getConnection();
 
-            $rs = $con->query("SELECT email, senha FROM login");
+        $rs = $con->query("SELECT email, senha FROM login");
 
-            while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
+        while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
                
-                echo $row->email . "<br>";
-                //echo $row->senha . "<br>"; Passamos o valor mas não listamos
-                
-            }
-        } catch (PDOException $error) {
-            echo "Erro ao listar os dados do Login. Erro: {$error->getMessage()}";
-        } finally {
-            unset($con);
-            unset($rs);
+            echo $row->email . "<br>";
+        
         }
+    } catch (PDOException $error) {
+        echo "Erro ao listar os dados do Login. Erro: {$error->getMessage()}";
+    } finally {
+        unset($con);
+        unset($rs);
     }
+}
 
     #get test
-    get();
+    /*get();
 
-    echo "<br><br>---<br><br>";
+    echo "<br><br>---<br><br>";*/
 
 
     function find($email)
@@ -98,7 +97,7 @@ function get()
     }
 
     #teste do find
-    find("ccerqueira@gmail.com");
+    #find("ccerqueira@gmail.com");
 
 
 
@@ -125,13 +124,13 @@ function get()
 
 
     #teste upgrade 
-     $login = new stdClass();   
+     /*$login = new stdClass();   
      $login->email = "ccerqueira@gmail.com";
      $login->senha = "rosada987";
      
 
 
-     get();
+     get();*/
 
 
 
@@ -155,12 +154,12 @@ function get()
 
 
     #delete test
-    echo "<br><br>---<br><br>";
+   /* echo "<br><br>---<br><br>";
     delete("ccerqueira@gmail.com"); 
     echo "<br><br>---<br><br>";
  
  
-    get();
+    get();*/
 
 
 

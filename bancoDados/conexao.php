@@ -3,7 +3,7 @@
 define("HOST", "localhost");
 define("USER", "root");
 define("PASS", "");
-define("DATABASE", "dev_hstyle");
+define("DATABASE", "dv_hstyle");
 
 function getConnection()
 {

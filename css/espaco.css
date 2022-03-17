@@ -1,0 +1,68 @@
+section.container h1.text-center {
+    color: #5ce1e6;
+    font-size: 60px;
+    margin-top: 20px;
+    text-shadow: 2px 2px black;
+}
+
+section.container img{
+    display: block; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 25px; 
+    width: 450px;
+    height: 360px;
+}
+
+section.container div#bloco1,
+section.container div#bloco2,
+section.container div#bloco3{
+    width: 1000px;
+    height: 375px;
+    /*background-color: pink;*/
+    margin: auto;
+}
+
+section.container div#bloco1 div#imagem1,
+section.container div#bloco2 div#imagem2,
+section.container div#bloco3 div#imagem3{
+    width: 480px;
+    height: 375px;
+    /*background-color: green ;*/
+    float: left;
+}
+
+section.container div#bloco1 div#texto1,
+section.container div#bloco2 div#texto2,
+section.container div#bloco3 div#texto3{
+    width: 480px;
+    height: 375px;
+    /*background-color: orange ;*/
+    float: right;
+}
+
+section.container div#bloco1 div#texto1 h2,
+section.container div#bloco2 div#texto2 h2,
+section.container div#bloco3 div#texto3 h2{
+    color: #222121;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 140px;
+    margin-bottom: 5%;
+}
+
+section.container div#bloco1 div#texto1 a,
+section.container div#bloco2 div#texto2 a,
+section.container div#bloco3 div#texto3 a{
+    background-color: #ffbd59;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    text-transform: uppercase; /*transforma o minusculo em maiusculo*/
+}
+
+section.container div#bloco1,
+section.container div#bloco2,
+section.container div#bloco3{
+    margin-bottom: 60px;
+}

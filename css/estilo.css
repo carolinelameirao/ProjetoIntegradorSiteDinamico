@@ -16,11 +16,15 @@ header.container-fluid {
 
 section.container h1.text-center {
     color: #5ce1e6;
+    font-size: 60px;
+    margin-top: 20px;
+    text-shadow: 2px 2px black;
 }
 
 section.container p {
-    font-size: 20px;
-    fon
+    font-size: 18px;
+    margin-top: 15px;
+    
 }
 
 section.container p {

@@ -10,11 +10,19 @@ function create($cliente)
         $con = getConnection();
         #Insert something
 
-        $stmt = $con->prepare("INSERT INTO cliente(cpf, nome, telefone) VALUES (:cpf, :nome, :telefone)");
+        $con->setAttribute(PDO::ATTR_EMULATE_PREPARES, 1);
+        
+        $query = "INSERT INTO login(email, senha) VALUES (:email, :senha);";
+        $query .= "INSERT INTO cliente(cpf, nome, telefone, idLogin) VALUES (:cpf, :nome, :telefone, last_Insert_id());";
+        
+        $stmt = $con->prepare($query);
 
+        $stmt->bindParam(":email", $cliente->email);
+        $stmt->bindParam(":senha", $cliente->senha);
         $stmt->bindParam(":cpf", $cliente->cpf);
         $stmt->bindParam(":nome", $cliente->nome);
         $stmt->bindParam(":telefone", $cliente->telefone);
+        
 
         if ($stmt->execute()) {
             echo " Cliente Cadastrado com sucesso";
@@ -29,17 +37,17 @@ function create($cliente)
 
 
 #create test - 
-$cliente = new stdClass();
+/*$cliente = new stdClass();
 $cliente->nome = "Clara Cerqueira";
 $cliente->cpf = "356.254.147-54";
 $cliente->email =  "ccerqueira@gmail.com";
-$cliente->senha = "rosada987";
+$cliente->senha = "rosada98";
 $cliente->telefone = "(21) 3568 4127";
 
 create($cliente);
 
 echo "<br><br>---<br><br>";
-
+*/
 
 
 
@@ -48,16 +56,15 @@ function get()
         try {
             $con = getConnection();
 
-            $rs = $con->query("SELECT nome, cpf, email, senha, telefone, dataCadastro FROM cliente");
+            $rs = $con->query("SELECT * FROM cliente_data");
 
-            while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
-                echo $row->nome . "<br>";
-                echo $row->cpf . "<br>";
-                echo $row->email . "<br>";
-                //echo $row->senha . "<br>"; Passamos o valor mas não listamos
-                echo $row->telefone . "<br>";
-                echo $row->dataCadastro . "<br>";
+            $cliente = array();
+
+            while ($clientes = $rs->fetch(PDO::FETCH_OBJ)) {
+                array_push($cliente, $clientes);
             }
+            return $cliente;
+
         } catch (PDOException $error) {
             echo "Erro ao listar cliente. Erro: {$error->getMessage()}";
         } finally {
@@ -67,35 +74,36 @@ function get()
     }
 
     #get test
-    get();
+   // get();
 
-    echo "<br><br>---<br><br>";
+    //echo "<br><br>---<br><br>";
 
 
-    function find($cpf)
+    function find($nome)
     {
         try {
             $con = getConnection();
 
-            $stmt = $con->prepare("SELECT nome, cpf, email, senha, telefone, dataCadastro FROM cliente WHERE cpf LIKE :cpf");
+            $stmt = $con->prepare("SELECT * FROM cliente_data WHERE nome LIKE :nome");
             
-            $stmt->bindValue(":cpf", "%{$cpf}%");
+            $stmt->bindValue(":nome", "%{$nome}%");
 
             
             if($stmt->execute()) {
                 if($stmt->rowCount() > 0) {
-                    while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
-                        echo $row->nome . "<br>";
-                        echo $row->cpf . "<br>";
-                        echo $row->email . "<br>";
-                        //echo $row->senha . "<br>"; Passamos o valor mas não listamos
-                        echo $row->telefone . "<br>";
-                        echo $row->dataCadastro . "<br>";
+                   
+                    $nome = array();
+
+                    while ($nomes = $stmt->fetch(PDO::FETCH_OBJ)) {
+                        array_push($nome, $nomes);
                     }
-                }
+                        //print_r($nome);
+                       return $nome;  
+                    
+                }    
             }
         } catch (PDOException $error) {
-            echo "Erro ao buscar o cliente '{$cpf}'. Erro: {$error->getMessage()}";
+            echo "Erro ao buscar o nome '{$nome}'. Erro: {$error->getMessage()}";
         } finally {
             unset($con);
             unset($stmt);
@@ -103,7 +111,7 @@ function get()
     }
 
     #teste do find
-    find("356.254.147-54");
+   // find("Clara");
 
 
 
@@ -111,21 +119,16 @@ function get()
     function update($cliente)
     {
         try {
-            $con = getConnection();
+        $con = getConnection();
+        #Insert something
 
-            $stmt = $con->prepare("UPDATE cliente SET nome= :nome, email = :email , senha = :senha , telefone = :telefone,
-             dataCadastro = :dataCadastro WHERE cpf = :cpf"); 
-            
-            
-             
-            $stmt->bindParam(":nome", $cliente->nome);
-            $stmt->bindParam(":cpf", $cliente->cpf);
-            $stmt->bindParam(":email", $cliente->email);
-            $stmt->bindParam(":senha", $cliente->senha); 
-            $stmt->bindParam(":telefone", $cliente->telefone);
-            $stmt->bindParam(":dataCadastro", $cliente->dataCadastro);
-
-            if ($stmt->execute())
+        $stmt = $con->prepare("UPDATE cliente SET nome = :nome, telefone = :telefone WHERE idLogin = :idLogin");
+        
+        $stmt->bindParam(":nome", $cliente->nome);
+        $stmt->bindParam(":telefone", $cliente->telefone);
+        $stmt->bindParam(":idLogin", $cliente->idLogin);
+        
+           if ($stmt->execute())
                 echo "Cliente atualizado com sucesso";
         } catch (PDOException $error) {
             echo "Erro ao atualizar o cliente. Erro: {$error->getMessage()}";
@@ -137,25 +140,23 @@ function get()
 
 
     #teste upgrade 
-     $cliente = new stdClass();   
-     $cliente->cpf = "356.254.147-54";
-     $cliente->email = "ccerqueira@gmail.com.br";
-     $cliente->senha = "rosada987";
-     $cliente->telefone = "(21) 3568 4127";
-      
+    /* $cliente = new stdClass();  
+     $cliente->idLogin = 6;
+     $cliente->nome = "Clara Cerqueiras";
+     $cliente->telefone = "(21) 3568 4128";
+     
+
+    update($cliente);
+*/
 
 
-     get();
-
-
-
-    function delete($cpf)
+    function delete($idLogin)
     {
         try {
             $con = getConnection();
 
-            $stmt = $con->prepare("DELETE FROM cliente WHERE cpf = ?");
-            $stmt->bindParam("356.254.147-54", $cpf); 
+            $stmt = $con->prepare("DELETE FROM cliente WHERE idLogin = ?");
+            $stmt->bindParam(1, $idLogin); 
 
             if ($stmt->execute())
                 echo "Cliente deletado com sucesso";
@@ -170,7 +171,7 @@ function get()
 
     #delete test
     echo "<br><br>---<br><br>";
-    delete("356.254.147-54"); 
+    delete(6); 
     echo "<br><br>---<br><br>";
  
  

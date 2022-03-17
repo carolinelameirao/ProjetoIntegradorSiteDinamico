@@ -8,6 +8,7 @@ CREATE TABLE login (
 	email VARCHAR(150) NOT NULL,
     senha VARCHAR(8) NOT NULL
 );
+select * from  login;
 
 CREATE TABLE cliente (
 	cpf VARCHAR(11) PRIMARY KEY,

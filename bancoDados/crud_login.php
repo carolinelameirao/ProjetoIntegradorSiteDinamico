@@ -14,77 +14,79 @@ function create($login)
          VALUES (:email , :senha)");
         
         $stmt->bindParam(":email", $login->email);
-        $stmt->bindParam(":senha", $login->senha);
+        $stmt->bindValue(":senha", md5($login->senha));
         
 
-        if ($stmt->execute()) {
-            echo "Login criado com sucesso";
-        }
+        if ($stmt->execute()) 
+            return true;
+        
     } catch (PDOException $error) {
-        echo "Error ao criar o Login. Error: {$error->getMessage()}";
+        return false;
     } finally {
         unset($con);
         unset($stmt);
     }
 }
 
-
-#create test - 
+//create test - 
 /*$login= new stdClass();
 
 $login->email =  "ccerqueira@gmail.com";
-$login->senha = "rosada987";
-
+$login->senha = "parada98";
 
 create($login);
 
-echo "<br><br>---<br><br>";*/
+echo "<br><br>$login->email<br><br>";
+echo "<br><br>$login->senha<br><br>";
 
+*/
 
-
-
-function get()
+function getLogin($login)
 {
     try {
         $con = getConnection();
 
-        $rs = $con->query("SELECT email, senha FROM login");
+        $stmt = $con->prepare("SELECT email FROM login WHERE email = :email senha = :senha");
 
-        while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
-               
-            echo $row->email . "<br>";
-        
-        }
-    } catch (PDOException $error) {
-        echo "Erro ao listar os dados do Login. Erro: {$error->getMessage()}";
-    } finally {
-        unset($con);
-        unset($rs);
+        $stmt->bindParam(":email", $login->email);
+        $stmt->bindValue(":senha", md5($login->senha));
+
+            return $stmt->fetch(PDO::FETCH_OBJ);
     }
-}
-
+        catch  (PDOException $error) 
+    {
+            echo "Erro ao efetuar o login. Erro: {$error->getMessage()}";
+    }
+        finally {
+            unset($con);
+            unset($stmt);
+        }
+    }
+        
     #get test
-    /*get();
+    /*getLogin($login);
 
-    echo "<br><br>---<br><br>";*/
-
+    echo "<br><br>$login->email<br><br>";
+    echo "<br><br>$login->senha<br><br>";
+    
+*/
 
     function find($email)
     {
         try {
             $con = getConnection();
 
-            $stmt = $con->prepare("SELECT senha FROM login WHERE email LIKE :email");
+            $stmt = $con->prepare("SELECT email, senha FROM login WHERE email LIKE :email");
             
             $stmt->bindValue(":email", "%{$email}%");
-
+            
             
             if($stmt->execute()) {
                 if($stmt->rowCount() > 0) {
                     while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
                        
                         echo $row->email . "<br>";
-                        //echo $row->senha . "<br>"; Passamos o valor mas não listamos
+                        echo $row->senha . "<br>"; 
                         }
                 }
             }
@@ -97,20 +99,21 @@ function get()
     }
 
     #teste do find
-    #find("ccerqueira@gmail.com");
+    //find ('ccerqueira@gmail.com');
 
+  
 
-
-    
+     
     function update($login)
     {
         try {
             $con = getConnection();
 
-            $stmt = $con->prepare("UPDATE login SET  senha = :senha WHERE email = :email"); 
-                        
+            $stmt = $con->prepare("UPDATE login SET  senha = :senha, email = :email WHERE id = :id"); 
+
+            $stmt->bindParam(":id", $login->id);           
             $stmt->bindParam(":email", $login->email);
-            $stmt->bindParam(":senha", $login->senha); 
+            $stmt->bindValue(":senha", md5($login->senha)); 
             
             if ($stmt->execute())
                 echo "Dados do Login atualizado com sucesso";
@@ -122,25 +125,29 @@ function get()
         }
     }
 
-
-    #teste upgrade 
-     /*$login = new stdClass();   
+ 
+    #teste upgdate 
+    /* $login = new stdClass();  
+     $login->id = 4; 
      $login->email = "ccerqueira@gmail.com";
-     $login->senha = "rosada987";
+     $login->senha = "rosad@98";
      
+     update($login);
 
+   //getLogin($login);
 
-     get();*/
+    echo "<br><br>$login->email<br><br>";
+    echo "<br><br>$login->senha<br><br>";
 
-
-
-    function delete($email)
+*/
+    
+    function delete($id)
     {
         try {
             $con = getConnection();
 
-            $stmt = $con->prepare("DELETE FROM login WHERE email = ?");
-            $stmt->bindParam("ccerqueira@gmail.com", $email); 
+            $stmt = $con->prepare("DELETE FROM login WHERE id = ?");
+            $stmt->bindParam(1, $id); 
 
             if ($stmt->execute())
                 echo "Dados do login deletado com sucesso";
@@ -154,13 +161,10 @@ function get()
 
 
     #delete test
-   /* echo "<br><br>---<br><br>";
-    delete("ccerqueira@gmail.com"); 
+    echo "<br><br>---<br><br>";
+    delete(3); 
     echo "<br><br>---<br><br>";
  
  
-    get();*/
-
-
-
+    //get();*/
 

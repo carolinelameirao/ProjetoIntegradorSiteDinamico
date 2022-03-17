@@ -23,3 +23,4 @@ function getConnection()
 }  
 
 getConnection();
+echo ("conectado");

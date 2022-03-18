@@ -22,5 +22,5 @@ function getConnection()
 
 }  
 
-getConnection();
-echo ("conectado");
+/*getConnection();
+echo ("conectado");*/

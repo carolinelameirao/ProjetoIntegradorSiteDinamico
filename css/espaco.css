@@ -2,7 +2,7 @@ section.container h1.text-center {
     color: #5ce1e6;
     font-size: 60px;
     margin-top: 20px;
-    text-shadow: 2px 2px black;
+    text-shadow: 3px 3px black;
 }
 
 section.container img{
@@ -44,10 +44,10 @@ section.container div#bloco3 div#texto3{
 section.container div#bloco1 div#texto1 h2,
 section.container div#bloco2 div#texto2 h2,
 section.container div#bloco3 div#texto3 h2{
-    color: #222121;
+    color: #474444;
     font-size: 28px;
     font-weight: 400;
-    margin-top: 140px;
+    margin-top: 50px;
     margin-bottom: 5%;
 }
 

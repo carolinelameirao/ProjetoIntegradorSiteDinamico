@@ -16,7 +16,9 @@ section.container img{
 
 section.container div#bloco1,
 section.container div#bloco2,
-section.container div#bloco3{
+section.container div#bloco3,
+section.container div#bloco4,
+section.container div#bloco5{
     width: 1000px;
     height: 375px;
     /*background-color: pink;*/
@@ -25,7 +27,9 @@ section.container div#bloco3{
 
 section.container div#bloco1 div#imagem1,
 section.container div#bloco2 div#imagem2,
-section.container div#bloco3 div#imagem3{
+section.container div#bloco3 div#imagem3,
+section.container div#bloco4 div#imagem4,
+section.container div#bloco5 div#imagem5{
     width: 480px;
     height: 375px;
     /*background-color: green ;*/
@@ -34,7 +38,9 @@ section.container div#bloco3 div#imagem3{
 
 section.container div#bloco1 div#texto1,
 section.container div#bloco2 div#texto2,
-section.container div#bloco3 div#texto3{
+section.container div#bloco3 div#texto3,
+section.container div#bloco4 div#texto4,
+section.container div#bloco5 div#texto5{
     width: 480px;
     height: 375px;
     /*background-color: orange ;*/
@@ -43,7 +49,9 @@ section.container div#bloco3 div#texto3{
 
 section.container div#bloco1 div#texto1 h2,
 section.container div#bloco2 div#texto2 h2,
-section.container div#bloco3 div#texto3 h2{
+section.container div#bloco3 div#texto3 h2,
+section.container div#bloco4 div#texto4 h2,
+section.container div#bloco5 div#texto5 h2{
     color: #474444;
     font-size: 28px;
     font-weight: 400;
@@ -51,18 +59,10 @@ section.container div#bloco3 div#texto3 h2{
     margin-bottom: 5%;
 }
 
-section.container div#bloco1 div#texto1 a,
-section.container div#bloco2 div#texto2 a,
-section.container div#bloco3 div#texto3 a{
-    background-color: #ffbd59;
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    text-transform: uppercase; /*transforma o minusculo em maiusculo*/
-}
-
 section.container div#bloco1,
 section.container div#bloco2,
-section.container div#bloco3{
+section.container div#bloco3,
+section.container div#bloco4,
+section.container div#bloco5{
     margin-bottom: 60px;
 }

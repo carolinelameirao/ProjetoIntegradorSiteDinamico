@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarala&display=swap');
+
 section.container{
     width: 1200px;
     height: 2270px;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 30px;
     /*border: 1px solid gray;*/
 }
 
 section.container h1.text-center {
     color: #5ce1e6;
     font-size: 60px;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     text-shadow: 3px 3px black;
 }
 

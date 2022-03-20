@@ -1,0 +1,20 @@
+h1#titulo {
+    color: #5ce1e6;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 30px;
+    text-shadow: 3px 3px black;
+}
+
+thead#tabela {
+    color: #474444;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+tr#dados {
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+    color: #363636;
+}

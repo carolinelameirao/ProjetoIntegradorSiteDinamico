@@ -16,9 +16,9 @@ header.container-fluid {
 
 section.container{
     width: 1200px;
-    height: 1430px;
+    /*height: 1430px;*/
     margin: auto;
-    margin-top: 60px;
+    margin-top: 30px;
     /*border: 1px solid gray;*/
 }
 
@@ -45,9 +45,9 @@ section.container h2 {
 }
 
 section.container div#caixaprincipal{
-    margin-top: 5%;
+    margin-top: 20px;
     width: 1110px;
-    height: 420px;
+    height: 550px;
     /*background-color: pink;*/
 }
 

@@ -65,6 +65,8 @@ section.container div#bloco5 div#texto5 h2{
     font-weight: 400;
     margin-top: 50px;
     margin-bottom: 5%;
+    text-shadow: 0px 0px #474444;
+    text-align: left;
 }
 
 section.container div#bloco1 div#texto1 p,

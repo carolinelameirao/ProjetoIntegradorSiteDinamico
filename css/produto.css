@@ -1,0 +1,183 @@
+section.container{
+    width: 1200px;
+    height: 1860px;
+    margin: auto;
+    margin-top: 60px;
+    /*border: 1px solid gray;*/
+}
+
+section.container div#bloco1{
+    width: 1115px;
+    height: 380px;
+    margin-top: 50px;
+}
+
+section.container div#bloco1 div#box1{
+    width: 30%;
+    height: 250px;
+    float: left;
+}
+
+section.container div#bloco1 div#box2{
+    width: 30%;
+    height: 250px;
+    float: left;
+    margin-left: 5%;
+}
+
+section.container div#bloco1 div#box3{
+    width: 30%;
+    height: 250px;
+    float: right;  
+}
+
+section.container div#bloco1 div#box1 img,
+section.container div#bloco1 div#box2 img,
+section.container div#bloco1 div#box3 img{
+    display: block; 
+    margin: auto; 
+    width: 100%;
+    height: 300px;
+}
+
+section.container div#bloco1 div#box1 h3,
+section.container div#bloco1 div#box2 h3,
+section.container div#bloco1 div#box3 h3{
+    text-align: center; 
+    font-family: arial, tahoma;
+    color: #747777;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+section.container div#bloco2{
+    width: 1115px;
+    height: 380px;
+    margin-top: 50px;
+}
+
+section.container div#bloco2 div#box1{
+    width: 30%;
+    height: 250px;
+    float: left;
+}
+
+section.container div#bloco2 div#box2{
+    width: 30%;
+    height: 250px;
+    float: left;
+    margin-left: 5%;
+}
+
+section.container div#bloco2 div#box3{
+    width: 30%;
+    height: 250px;
+    float: right;  
+}
+
+section.container div#bloco2 div#box1 img,
+section.container div#bloco2 div#box2 img,
+section.container div#bloco2 div#box3 img{
+    display: block; 
+    margin: auto;
+    width: 100%;
+    height: 300px; 
+}
+
+section.container div#bloco2 div#box1 h3,
+section.container div#bloco2 div#box2 h3,
+section.container div#bloco2 div#box3 h3{
+    text-align: center; 
+    font-family: 'Sarala', sans-serif;
+    color: #747777;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+section.container div#bloco3{
+    width: 1115px;
+    height: 380px;
+    margin-top: 50px;
+}
+
+section.container div#bloco3 div#box1{
+    width: 30%;
+    height: 250px;
+    float: left;
+}
+
+section.container div#bloco3 div#box2{
+    width: 30%;
+    height: 250px;
+    float: left;
+    margin-left: 5%;
+}
+
+section.container div#bloco3 div#box3{
+    width: 30%;
+    height: 250px;
+    float: right;  
+}
+
+section.container div#bloco3 div#box1 img,
+section.container div#bloco3 div#box2 img,
+section.container div#bloco3 div#box3 img{
+    display: block; 
+    margin: auto;
+    width: 100%;
+    height: 300px; 
+}
+
+section.container div#bloco3 div#box1 h3,
+section.container div#bloco3 div#box2 h3,
+section.container div#bloco3 div#box3 h3{
+    text-align: center; 
+    font-family: 'Sarala', sans-serif;
+    color: #747777;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+section.container div#bloco4{
+    width: 1115px;
+    height: 380px;
+    margin-top: 50px;
+}
+
+section.container div#bloco4 div#box1{
+    width: 30%;
+    height: 250px;
+    float: left;
+}
+
+section.container div#bloco4 div#box2{
+    width: 30%;
+    height: 250px;
+    float: left;
+    margin-left: 5%;
+}
+
+section.container div#bloco4 div#box3{
+    width: 30%;
+    height: 250px;
+    float: right;  
+}
+
+section.container div#bloco4 div#box1 img,
+section.container div#bloco4 div#box2 img,
+section.container div#bloco4 div#box3 img{
+    display: block; 
+    margin: auto;
+    width: 100%;
+    height: 300px; 
+}
+
+section.container div#bloco4 div#box1 h3,
+section.container div#bloco4 div#box2 h3,
+section.container div#bloco4 div#box3 h3{
+    text-align: center; 
+    font-family: 'Sarala', sans-serif;
+    color: #747777;
+    margin-top: 20px;
+    font-size: 24px;
+}

@@ -1,7 +1,15 @@
+section.container{
+    width: 1200px;
+    height: 2270px;
+    margin: auto;
+    margin-top: 60px;
+    /*border: 1px solid gray;*/
+}
+
 section.container h1.text-center {
     color: #5ce1e6;
     font-size: 60px;
-    margin-top: 20px;
+    margin-top: 15px;
     text-shadow: 3px 3px black;
 }
 
@@ -57,6 +65,16 @@ section.container div#bloco5 div#texto5 h2{
     font-weight: 400;
     margin-top: 50px;
     margin-bottom: 5%;
+}
+
+section.container div#bloco1 div#texto1 p,
+section.container div#bloco2 div#texto2 p,
+section.container div#bloco3 div#texto3 p,
+section.container div#bloco4 div#texto4 p,
+section.container div#bloco5 div#texto5 p{
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: left;
 }
 
 section.container div#bloco1,

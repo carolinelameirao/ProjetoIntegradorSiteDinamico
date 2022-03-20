@@ -14,21 +14,87 @@ header.container-fluid {
     background-color: #919191;
 }
 
+section.container{
+    width: 1200px;
+    height: 1430px;
+    margin: auto;
+    margin-top: 60px;
+    /*border: 1px solid gray;*/
+}
+
 section.container h1.text-center {
     color: #5ce1e6;
     font-size: 60px;
-    margin-top: 20px;
+    margin-top: 10px;
     text-shadow: 3px 3px black;
 }
 
 section.container p {
     font-size: 18px;
     margin-top: 15px;
-    
+    text-align: center;
+    color: #363636;
 }
 
-section.container p {
-    color: #363636;
+section.container h2 {
+    font-size: 30px;
+    margin-top: 24px;
+    text-align: center;
+    color: #5ce1e6;
+    text-shadow: 2px 2px black;
+}
+
+section.container div#caixaprincipal{
+    margin-top: 5%;
+    width: 1110px;
+    height: 420px;
+    /*background-color: pink;*/
+}
+
+section.container div#caixaprincipal div#caixa1,
+section.container div#caixaprincipal div#caixa3{
+    width: 450px;
+    height: 400px;
+    /*background-color: blue;*/
+    float: left;
+}
+
+section.container div#caixaprincipal div#caixa1 img,
+section.container div#caixaprincipal div#caixa3 img{
+    display: block;
+    margin: auto;
+    width: 380px;
+    height: 350px;
+    box-shadow: 4px 4px #474444;
+    margin-right: 3%;
+}
+
+section.container div#caixaprincipal div#caixa1 h3,
+section.container div#caixaprincipal div#caixa2 h3,
+section.container div#caixaprincipal div#caixa3 h3,
+section.container div#caixaprincipal div#caixa4 h3{
+    color: #474444;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+section.container div#caixaprincipal div#caixa2,
+section.container div#caixaprincipal div#caixa4{
+    width: 450px;
+    height: 400px;
+    /*background-color: orange;*/
+    float: right;
+}
+
+section.container div#caixaprincipal div#caixa2 img,
+section.container div#caixaprincipal div#caixa4 img{
+    display:block;
+    margin: auto;
+    width: 380px;
+    height: 350px;
+    margin-left: 3%;
+    box-shadow: 4px 4px #474444;  
 }
 
 footer.container-fluid {

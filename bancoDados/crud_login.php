@@ -41,7 +41,7 @@ echo "<br><br>$login->senha<br><br>";
 
 */
 
-function getLogin($login)
+function getLogin()
 {
     try {
         $con = getConnection();
@@ -64,12 +64,12 @@ function getLogin($login)
     }
         
     #get test
-    /*getLogin($login);
+    getLogin();
 
     echo "<br><br>$login->email<br><br>";
     echo "<br><br>$login->senha<br><br>";
     
-*/
+
 
     function find($email)
     {
@@ -161,9 +161,9 @@ function getLogin($login)
 
 
     #delete test
-    echo "<br><br>---<br><br>";
+    /*echo "<br><br>---<br><br>";
     delete(3); 
-    echo "<br><br>---<br><br>";
+    echo "<br><br>---<br><br>";*/
  
  
     //get();*/

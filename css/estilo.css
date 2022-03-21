@@ -103,6 +103,7 @@ footer.container-fluid {
 
 footer.container-fluid ul li {
     list-style: none;
+    text-align: left;
 }
 
 footer.container-fluid a {
@@ -113,3 +114,4 @@ footer.container-fluid a {
 footer.container-fluid a:hover {
     color: #5ce1e6;
 }
+
